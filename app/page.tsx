@@ -2,9 +2,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   return (
-    <Tabs defaultValue="account" className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full bg-black">
-        <div>
+    <Tabs defaultValue="about" className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-50 w-full bg-monYellow">
+        <div className="mx-auto w-full max-w-7xl">
           <TabsList>
             <TabsTrigger value="about">About Me</TabsTrigger>
             <TabsTrigger value="portfolio">Portfolio</TabsTrigger>
@@ -15,7 +15,7 @@ export default function Home() {
           </TabsList>
         </div>
       </header>
-      <main className="flex-1">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-1">
         <TabsContent value="about">
           <h1>About Me</h1>
         </TabsContent>
@@ -35,7 +35,11 @@ export default function Home() {
           <h1>Contact</h1>
         </TabsContent>
       </main>
-      <footer className="py-6">Created by Valdinei de Paula Junior</footer>
+      <footer className="h-20 content-center bg-monYellow">
+        <div className="mx-auto w-full max-w-7xl px-1">
+          Created by Valdinei de Paula Junior
+        </div>
+      </footer>
     </Tabs>
   );
 }
