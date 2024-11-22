@@ -15,7 +15,7 @@ export default function Home() {
           </TabsList>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-7xl flex-1">
+      <main className="mx-auto w-full flex-1 px-10">
         <TabsContent value="about">
           <About />
         </TabsContent>
