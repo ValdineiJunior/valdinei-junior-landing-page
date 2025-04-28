@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { Skills } from "@/components/Skills";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
             <h1 className="text-2xl font-bold">Experience</h1>
           </TabsContent>
           <TabsContent value="skills" className="mt-4">
-            <h1 className="text-2xl font-bold">Skills</h1>
+            <Skills />
           </TabsContent>
           <TabsContent value="contact" className="mt-4">
             <h1 className="text-2xl font-bold">Contact</h1>
