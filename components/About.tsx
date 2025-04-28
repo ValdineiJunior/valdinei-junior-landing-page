@@ -8,13 +8,15 @@ import {
 
 export const About = () => {
   return (
-    <div>
-      <Carousel>
+    <div className="mx-auto w-full max-w-5xl">
+      <Carousel className="w-full">
         <CarouselContent>
           <CarouselItem>
-            <div className="rounded-3xl bg-darkBlue p-10 text-main-50">
-              <h2 className="py-4 text-xl">Welcome to my portfolio</h2>
-              <ul className="list-disc space-y-2 pl-5 text-lg">
+            <div className="rounded-3xl bg-darkBlue p-6 text-main-50 sm:p-10">
+              <h2 className="py-4 text-lg font-semibold sm:text-xl">
+                Welcome to my portfolio
+              </h2>
+              <ul className="list-disc space-y-2 pl-5 text-base sm:text-lg">
                 <li>
                   Hi, I am Valdinei, a software developer passionate about
                   technology.
@@ -43,9 +45,11 @@ export const About = () => {
             </div>
           </CarouselItem>
           <CarouselItem>
-            <div className="rounded-3xl bg-darkGreen p-10 text-darkBlue">
-              <h2 className="py-4 text-xl">My history</h2>
-              <ul className="list-disc space-y-2 pl-5 text-lg">
+            <div className="rounded-3xl bg-darkGreen p-6 text-darkBlue sm:p-10">
+              <h2 className="py-4 text-lg font-semibold sm:text-xl">
+                My history
+              </h2>
+              <ul className="list-disc space-y-2 pl-5 text-base sm:text-lg">
                 <li>
                   Specialize in cutting-edge technologies, including React,
                   Next.js, and TypeScript.
@@ -70,9 +74,11 @@ export const About = () => {
             </div>
           </CarouselItem>
           <CarouselItem>
-            <div className="rounded-3xl bg-lightBlue p-10 text-darkBlue">
-              <h2 className="py-4 text-xl">My services</h2>
-              <ul className="list-disc space-y-2 pl-5 text-lg">
+            <div className="rounded-3xl bg-lightBlue p-6 text-darkBlue sm:p-10">
+              <h2 className="py-4 text-lg font-semibold sm:text-xl">
+                My services
+              </h2>
+              <ul className="list-disc space-y-2 pl-5 text-base sm:text-lg">
                 <li>
                   Hi, I am Valdinei, a software developer passionate about
                   technology.
@@ -101,8 +107,8 @@ export const About = () => {
             </div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden sm:flex" />
+        <CarouselNext className="hidden sm:flex" />
       </Carousel>
     </div>
   );
