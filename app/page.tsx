@@ -2,6 +2,7 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Portfolio } from "@/components/Portfolio";
+import { Experience } from "@/components/Experience";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
             <Portfolio />
           </TabsContent>
           <TabsContent value="experience" className="mt-4">
-            <h1 className="text-2xl font-bold">Experience</h1>
+            <Experience />
           </TabsContent>
           <TabsContent value="skills" className="mt-4">
             <Skills />
