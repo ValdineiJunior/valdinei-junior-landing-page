@@ -1,5 +1,14 @@
 import { Briefcase, MapPin } from "lucide-react";
 
+export type Experience = {
+  company: string;
+  position: string;
+  period: string;
+  location: string;
+  description: string[];
+  technologies: string[];
+};
+
 const experiences = [
   {
     company: "Tech Solutions Inc.",
@@ -42,14 +51,9 @@ const experiences = [
   },
 ];
 
-const ExperienceCard = ({
-  experience,
-}: {
-  experience: (typeof experiences)[0];
-}) => {
+const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
-    <div className="relative pb-8 pl-8 before:absolute before:left-0 before:top-2 before:h-full before:w-0.5 before:bg-gray-200 last:before:hidden">
-      <div className="bg-blue-500 absolute left-[-4px] top-2 h-2 w-2 rounded-full"></div>
+    <div className="pb-8">
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="text-xl font-semibold text-gray-800">
