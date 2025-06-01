@@ -47,22 +47,20 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main className="mx-auto w-full flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="flex-1">
         <div className="mx-auto max-w-7xl">
-          <div className="min-h-[calc(100vh-12rem)]">
-            <TabsContent value="about" className="mt-4">
-              <About />
-            </TabsContent>
-            <TabsContent value="portfolio" className="mt-4">
-              <Portfolio />
-            </TabsContent>
-            <TabsContent value="skills" className="mt-4">
-              <Skills />
-            </TabsContent>
-            <TabsContent value="contact" className="mt-4">
-              <Contact />
-            </TabsContent>
-          </div>
+          <TabsContent value="about" className="mt-4">
+            <About />
+          </TabsContent>
+          <TabsContent value="portfolio" className="mt-4">
+            <Portfolio />
+          </TabsContent>
+          <TabsContent value="skills" className="mt-4">
+            <Skills />
+          </TabsContent>
+          <TabsContent value="contact" className="mt-4">
+            <Contact />
+          </TabsContent>
         </div>
       </main>
       <footer className="bg-lightBlue py-8">
