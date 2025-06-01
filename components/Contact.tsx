@@ -1,4 +1,6 @@
-import { Github, Linkedin, Mail, Phone, Globe } from "lucide-react";
+"use client";
+import { Github, Linkedin, MessageCircle, Copy, Check } from "lucide-react";
+import { useState } from "react";
 
 const contactLinks = [
   {
@@ -12,19 +14,9 @@ const contactLinks = [
     url: "https://www.linkedin.com/in/valdinei-junior-software-developer/",
   },
   {
-    name: "Email",
-    icon: Mail,
-    url: "mailto:valdineidepaulajunior@gmail.com",
-  },
-  {
-    name: "Phone",
-    icon: Phone,
-    url: "tel:+5543996367035",
-  },
-  {
-    name: "Website",
-    icon: Globe,
-    url: "https://valdinei-junior.dev",
+    name: "WhatsApp",
+    icon: MessageCircle,
+    url: "https://wa.me/5543996367035",
   },
 ];
 
@@ -47,6 +39,53 @@ const ContactLink = ({
       <Icon className="h-6 w-6" />
       <span className="font-medium">{name}</span>
     </a>
+  );
+};
+
+const CopyableText = ({
+  text,
+  label,
+  copyText,
+}: {
+  text: string;
+  label: string;
+  copyText?: string;
+}) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(copyText || text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
+  return (
+    <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+      <div>
+        <p className="text-sm text-gray-500">{label}</p>
+        <p className="font-medium text-gray-800">{text}</p>
+      </div>
+      <button
+        onClick={copyToClipboard}
+        className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-600 transition-all duration-300 hover:bg-gray-50"
+      >
+        {copied ? (
+          <>
+            <Check className="text-green-500 h-4 w-4" />
+            <span>Copied!</span>
+          </>
+        ) : (
+          <>
+            <Copy className="h-4 w-4" />
+            <span>Copy</span>
+          </>
+        )}
+      </button>
+    </div>
   );
 };
 
@@ -78,6 +117,18 @@ export const Contact = () => {
           should connect, just drop me a message — I&apos;d love to hear from
           you.
         </p>
+      </div>
+
+      <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <CopyableText
+          label="Email Address"
+          text="valdineidepaulajunior@gmail.com"
+        />
+        <CopyableText
+          label="Phone Number"
+          text="+55 (43) 99636-7035"
+          copyText="+5543996367035"
+        />
       </div>
     </div>
   );
