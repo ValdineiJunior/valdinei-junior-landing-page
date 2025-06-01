@@ -56,9 +56,9 @@ export const Contact = () => {
       <div className="mb-12 text-center">
         <h2 className="mb-4 text-3xl font-bold text-gray-800">Get in Touch</h2>
         <p className="mx-auto max-w-2xl text-gray-600">
-          Feel free to reach out to me through any of these platforms. I&apos;m
-          always open to discussing new projects, creative ideas, or
-          opportunities to be part of your visions.
+          I&apos;m always up for a good chat — whether it&apos;s about a cool
+          idea, a project you&apos;re working on, or just to say hey. You can
+          find me on the platforms below. Don&apos;t be shy!
         </p>
       </div>
 
@@ -73,10 +73,10 @@ export const Contact = () => {
           Let&apos;s Work Together
         </h3>
         <p className="mx-auto max-w-2xl text-gray-600">
-          I&apos;m currently available for freelance work and full-time
-          positions. If you have a project that you want to get started, think
-          you need my help with something, or just fancy saying hello, then get
-          in touch.
+          Got something in mind? I&apos;m always open to interesting
+          conversations, collaborations, or just swapping ideas. If you think we
+          should connect, just drop me a message — I&apos;d love to hear from
+          you.
         </p>
       </div>
     </div>
