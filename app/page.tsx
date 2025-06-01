@@ -3,7 +3,7 @@ import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Portfolio } from "@/components/Portfolio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, MessageCircle } from "lucide-react";
 
 export default function Home() {
   return (
@@ -95,10 +95,12 @@ export default function Home() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:valdineidepaulajunior@gmail.com"
+                href="https://wa.me/5543996367035"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-600 transition-colors duration-300 hover:text-gray-900"
               >
-                <Mail className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </a>
             </div>
           </div>
