@@ -2,7 +2,6 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Portfolio } from "@/components/Portfolio";
-import { Experience } from "@/components/Experience";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Github, Linkedin, Mail } from "lucide-react";
 
@@ -33,12 +32,6 @@ export default function Home() {
                 Portfolio
               </TabsTrigger>
               <TabsTrigger
-                value="experience"
-                className="text-sm transition-all duration-300 hover:scale-105 sm:text-base"
-              >
-                Experience
-              </TabsTrigger>
-              <TabsTrigger
                 value="skills"
                 className="text-sm transition-all duration-300 hover:scale-105 sm:text-base"
               >
@@ -62,9 +55,6 @@ export default function Home() {
             </TabsContent>
             <TabsContent value="portfolio" className="mt-4">
               <Portfolio />
-            </TabsContent>
-            <TabsContent value="experience" className="mt-4">
-              <Experience />
             </TabsContent>
             <TabsContent value="skills" className="mt-4">
               <Skills />
