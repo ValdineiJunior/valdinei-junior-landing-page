@@ -55,7 +55,20 @@ const CopyableText = ({
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(copyText || text);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(copyText || text);
+      } else {
+        // fallback for mobile browsers
+        const textarea = document.createElement("textarea");
+        textarea.value = copyText || text;
+        textarea.style.position = "fixed"; // avoid scrolling to bottom
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -71,17 +84,18 @@ const CopyableText = ({
       </div>
       <button
         onClick={copyToClipboard}
-        className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-600 transition-all duration-300 hover:bg-gray-50"
+        className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-600 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:px-3 sm:py-2"
+        aria-label="Copy"
       >
         {copied ? (
           <>
-            <Check className="text-green-500 h-4 w-4" />
-            <span>Copied!</span>
+            <Check className="h-5 w-5 text-green-500 sm:h-4 sm:w-4" />
+            <span className="hidden lg:inline">Copied!</span>
           </>
         ) : (
           <>
-            <Copy className="h-4 w-4" />
-            <span>Copy</span>
+            <Copy className="h-5 w-5 sm:h-4 sm:w-4" />
+            <span className="hidden lg:inline">Copy</span>
           </>
         )}
       </button>
@@ -119,7 +133,7 @@ export const Contact = () => {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2">
         <CopyableText
           label="Email Address"
           text="valdineidepaulajunior@gmail.com"
