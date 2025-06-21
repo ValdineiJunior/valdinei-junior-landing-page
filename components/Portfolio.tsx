@@ -1,44 +1,35 @@
 import { ExternalLink, Github } from "lucide-react";
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  githubUrl: string;
+  liveUrl: string;
+};
+
+const projects: Project[] = [
   {
-    title: "E-commerce Platform",
+    title: "Cube Lessons",
     description:
-      "A full-stack e-commerce platform built with Next.js, featuring product management, shopping cart, and payment integration.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    image: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/ecommerce",
-    liveUrl: "https://ecommerce-demo.com",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates, user authentication, and team features.",
-    technologies: ["React", "Firebase", "Material UI", "Redux"],
-    image: "/projects/taskmanager.jpg",
-    githubUrl: "https://github.com/yourusername/taskmanager",
-    liveUrl: "https://taskmanager-demo.com",
-  },
-  {
-    title: "Weather Dashboard",
-    description:
-      "A weather application that provides real-time weather data and forecasts with a beautiful UI.",
-    technologies: ["React", "OpenWeather API", "Chart.js", "CSS Modules"],
-    image: "/projects/weather.jpg",
-    githubUrl: "https://github.com/yourusername/weather",
-    liveUrl: "https://weather-demo.com",
+      "An interactive application designed to help users learn and practice solving the Rubik's Cube, featuring step-by-step guides, timers, and study resources.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/cube-lessons.PNG",
+    githubUrl: "https://github.com/ValdineiJunior/cube-lessons",
+    liveUrl: "https://cube-lessons.vercel.app",
   },
 ];
 
-const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
       <div className="aspect-video overflow-hidden">
-        {/* <img
+        <img
           src={project.image}
           alt={project.title}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        /> */}
+        />
       </div>
 
       <div className="p-6">
