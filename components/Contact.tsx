@@ -1,6 +1,7 @@
 "use client";
 import { Github, Linkedin, MessageCircle, Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
 
 const contactLinks = [
   {
@@ -51,30 +52,7 @@ const CopyableText = ({
   label: string;
   copyText?: string;
 }) => {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = async () => {
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(copyText || text);
-      } else {
-        // fallback for mobile browsers
-        const textarea = document.createElement("textarea");
-        textarea.value = copyText || text;
-        textarea.style.position = "fixed"; // avoid scrolling to bottom
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-      }
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
+  const { copied, copyToClipboard } = useCopyToClipboard();
 
   return (
     <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
@@ -83,7 +61,7 @@ const CopyableText = ({
         <p className="font-medium text-gray-800">{text}</p>
       </div>
       <button
-        onClick={copyToClipboard}
+        onClick={() => copyToClipboard(copyText || text)}
         className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-600 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:px-3 sm:py-2"
         aria-label="Copy"
       >
