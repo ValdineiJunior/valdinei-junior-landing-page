@@ -24,7 +24,7 @@ const projects: Project[] = [
     description:
       "A comprehensive beauty salon management system that streamlines appointment scheduling, client management, and service tracking for salons and spas.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    image: "/Beautysalon.PNG",
+    image: "/Beautysalon.png",
     githubUrl: "https://github.com/ValdineiJunior/OriginSix",
     liveUrl: "https://valdineijunior.github.io/OriginSix/",
   },
