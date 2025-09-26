@@ -19,6 +19,15 @@ const projects: Project[] = [
     githubUrl: "https://github.com/ValdineiJunior/cube-lessons",
     liveUrl: "https://cube-lessons.vercel.app",
   },
+  {
+    title: "Beautysalon",
+    description:
+      "A comprehensive beauty salon management system that streamlines appointment scheduling, client management, and service tracking for salons and spas.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/Beautysalon.PNG",
+    githubUrl: "https://github.com/ValdineiJunior/OriginSix",
+    liveUrl: "https://valdineijunior.github.io/OriginSix/",
+  },
 ];
 
 const ProjectCard = ({ project }: { project: Project }) => {
