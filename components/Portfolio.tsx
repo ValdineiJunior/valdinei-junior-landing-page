@@ -11,6 +11,15 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "Fresh Food",
+    description:
+      "A modern food ordering interface focused on clean product discovery, intuitive navigation, and a fast responsive experience.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/fresh-food.PNG/",
+    githubUrl: "https://github.com/ValdineiJunior/fresh-food",
+    liveUrl: "https://fresh-food-mu.vercel.app/",
+  },
+  {
     title: "Cube Lessons",
     description:
       "An interactive application designed to help users learn and practice solving the Rubik's Cube, featuring step-by-step guides, timers, and study resources.",
