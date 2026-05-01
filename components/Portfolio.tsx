@@ -32,26 +32,26 @@ const projects: Project[] = [
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/40 transition-colors hover:border-white/20">
       <div className="aspect-video overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
 
       <div className="p-6">
-        <h3 className="mb-2 text-xl font-semibold text-gray-800">
+        <h3 className="mb-2 text-xl font-semibold text-zinc-100">
           {project.title}
         </h3>
-        <p className="mb-4 text-gray-600">{project.description}</p>
+        <p className="mb-4 text-zinc-400">{project.description}</p>
 
         <div className="mb-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600"
+              className="rounded-full border border-white/10 bg-zinc-950 px-3 py-1 text-sm text-zinc-300"
             >
               {tech}
             </span>
@@ -63,7 +63,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+            className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-100"
           >
             <Github className="h-5 w-5" />
             <span>GitHub</span>
@@ -72,7 +72,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+            className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-100"
           >
             <ExternalLink className="h-5 w-5" />
             <span>Live Demo</span>
@@ -85,10 +85,15 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 export const Portfolio = () => {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-gray-800">My Projects</h2>
-        <p className="mx-auto max-w-2xl text-gray-600">
+    <section className="py-12">
+      <div className="mb-12">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          Portfolio
+        </p>
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight text-zinc-100">
+          Selected projects
+        </h2>
+        <p className="max-w-2xl text-zinc-400">
           Here are some of the projects I&apos;ve worked on. Each project
           represents a unique challenge and solution.
         </p>
@@ -99,6 +104,6 @@ export const Portfolio = () => {
           <ProjectCard key={project.title} project={project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };

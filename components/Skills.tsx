@@ -12,9 +12,6 @@ const skills = [
       "CSS",
       "JavaScript",
     ],
-    color: "bg-blue-500/10",
-    borderColor: "border-blue-500/20",
-    hoverColor: "hover:bg-blue-500/20",
   },
   {
     category: "Backend & APIs",
@@ -29,9 +26,6 @@ const skills = [
       "Zod",
       "Yup",
     ],
-    color: "bg-green-500/10",
-    borderColor: "border-green-500/20",
-    hoverColor: "hover:bg-green-500/20",
   },
   {
     category: "Testing & Tools",
@@ -46,9 +40,6 @@ const skills = [
       "English",
       "Portuguese",
     ],
-    color: "bg-purple-500/10",
-    borderColor: "border-purple-500/20",
-    hoverColor: "hover:bg-purple-500/20",
   },
   {
     category: "Advanced Concepts",
@@ -60,35 +51,24 @@ const skills = [
       "Styled components",
       "ES6+",
     ],
-    color: "bg-orange-500/10",
-    borderColor: "border-orange-500/20",
-    hoverColor: "hover:bg-orange-500/20",
   },
 ];
 
 const SkillCard = ({
   category,
   items,
-  color,
-  borderColor,
-  hoverColor,
 }: {
   category: string;
   items: string[];
-  color: string;
-  borderColor: string;
-  hoverColor: string;
 }) => {
   return (
-    <div
-      className={`rounded-2xl p-6 ${color} border ${borderColor} shadow-lg transition-all duration-300 ${hoverColor} hover:scale-[1.02] hover:shadow-xl`}
-    >
-      <h3 className="mb-4 text-xl font-semibold text-gray-800">{category}</h3>
+    <div className="rounded-2xl border border-white/10 bg-zinc-900/40 p-6 transition-colors hover:border-white/20">
+      <h3 className="mb-4 text-xl font-semibold text-zinc-100">{category}</h3>
       <div className="flex flex-wrap gap-2">
         {items.map((skill) => (
           <span
             key={skill}
-            className="rounded-full border border-gray-200 bg-white/50 px-3 py-1 text-sm font-medium text-gray-700 transition-all duration-300 hover:bg-white hover:shadow-md"
+            className="rounded-full border border-white/10 bg-zinc-950 px-3 py-1 text-sm font-medium text-zinc-300 transition-colors hover:border-white/20 hover:text-zinc-100"
           >
             {skill}
           </span>
@@ -100,12 +80,15 @@ const SkillCard = ({
 
 export const Skills = () => {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-gray-800">
+    <section className="py-12">
+      <div className="mb-12">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          Skills
+        </p>
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight text-zinc-100">
           Skills & Expertise
         </h2>
-        <p className="mx-auto max-w-2xl text-gray-600">
+        <p className="max-w-2xl text-zinc-400">
           A comprehensive overview of my technical skills and professional
           expertise
         </p>
@@ -116,6 +99,6 @@ export const Skills = () => {
           <SkillCard key={skill.category} {...skill} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
 import { Github, Linkedin, MessageCircle, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import type { LucideIcon } from "lucide-react";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
 
 const contactLinks = [
@@ -27,7 +27,7 @@ const ContactLink = ({
   url,
 }: {
   name: string;
-  icon: any;
+  icon: LucideIcon;
   url: string;
 }) => {
   return (
@@ -35,7 +35,7 @@ const ContactLink = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-3 rounded-xl border border-gray-200 p-4 transition-all duration-300 hover:scale-105 hover:bg-gray-900 hover:text-white`}
+      className="flex items-center gap-3 rounded-xl border border-white/10 bg-zinc-900/30 p-4 text-zinc-300 transition-colors hover:border-white/20 hover:text-zinc-100"
     >
       <Icon className="h-6 w-6" />
       <span className="font-medium">{name}</span>
@@ -55,19 +55,19 @@ const CopyableText = ({
   const { copied, copyToClipboard } = useCopyToClipboard();
 
   return (
-    <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+    <div className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-900/40 p-4">
       <div>
-        <p className="text-sm text-gray-500">{label}</p>
-        <p className="font-medium text-gray-800">{text}</p>
+        <p className="text-sm text-zinc-500">{label}</p>
+        <p className="font-medium text-zinc-100">{text}</p>
       </div>
       <button
         onClick={() => copyToClipboard(copyText || text)}
-        className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-600 transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:px-3 sm:py-2"
+        className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm text-zinc-300 transition-colors hover:border-white/20 hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-400/40 sm:px-3 sm:py-2"
         aria-label="Copy"
       >
         {copied ? (
           <>
-            <Check className="h-5 w-5 text-green-500 sm:h-4 sm:w-4" />
+            <Check className="h-5 w-5 text-emerald-400 sm:h-4 sm:w-4" />
             <span className="hidden lg:inline">Copied!</span>
           </>
         ) : (
@@ -83,10 +83,15 @@ const CopyableText = ({
 
 export const Contact = () => {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-gray-800">Get in Touch</h2>
-        <p className="mx-auto max-w-2xl text-gray-600">
+    <section className="py-12">
+      <div className="mb-12">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          Contact
+        </p>
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight text-zinc-100">
+          Get in touch
+        </h2>
+        <p className="max-w-2xl text-zinc-400">
           I&apos;m always up for a good chat — whether it&apos;s about a cool
           idea, a project you&apos;re working on, or just to say hey. You can
           find me on the platforms below. Don&apos;t be shy!
@@ -100,10 +105,10 @@ export const Contact = () => {
       </div>
 
       <div className="mt-12 text-center">
-        <h3 className="mb-4 text-xl font-semibold text-gray-800">
+        <h3 className="mb-4 text-xl font-semibold text-zinc-100">
           Let&apos;s Work Together
         </h3>
-        <p className="mx-auto max-w-2xl text-gray-600">
+        <p className="mx-auto max-w-2xl text-zinc-400">
           Got something in mind? I&apos;m always open to interesting
           conversations, collaborations, or just swapping ideas. If you think we
           should connect, just drop me a message — I&apos;d love to hear from
@@ -122,6 +127,6 @@ export const Contact = () => {
           copyText="+5543996367035"
         />
       </div>
-    </div>
+    </section>
   );
 };

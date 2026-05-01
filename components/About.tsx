@@ -1,4 +1,5 @@
 import { Code2, Rocket, Target, Users } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const aboutSections = [
   {
@@ -9,8 +10,6 @@ const aboutSections = [
       "I specialize in modern web technologies and love turning complex problems into simple, beautiful solutions.",
       "My journey in tech is driven by continuous learning and a commitment to writing clean, maintainable code.",
     ],
-    color: "bg-blue-500/10",
-    borderColor: "border-blue-500/20",
   },
   {
     title: "What I Do",
@@ -20,8 +19,6 @@ const aboutSections = [
       "I create responsive and accessible user interfaces with Tailwind CSS.",
       "I implement best practices in software development and maintain high code quality standards.",
     ],
-    color: "bg-green-500/10",
-    borderColor: "border-green-500/20",
   },
   {
     title: "My Approach",
@@ -31,8 +28,6 @@ const aboutSections = [
       "I break down complex problems into manageable tasks.",
       "I prioritize clean architecture and scalable solutions.",
     ],
-    color: "bg-purple-500/10",
-    borderColor: "border-purple-500/20",
   },
   {
     title: "My Goals",
@@ -42,8 +37,6 @@ const aboutSections = [
       "To continuously improve my skills and stay updated with the latest technologies.",
       "To collaborate with teams that value quality and user experience.",
     ],
-    color: "bg-orange-500/10",
-    borderColor: "border-orange-500/20",
   },
 ];
 
@@ -51,28 +44,22 @@ const AboutSection = ({
   title,
   icon: Icon,
   content,
-  color,
-  borderColor,
 }: {
   title: string;
-  icon: any;
+  icon: LucideIcon;
   content: string[];
-  color: string;
-  borderColor: string;
 }) => {
   return (
-    <div
-      className={`rounded-2xl p-6 ${color} border ${borderColor} shadow-lg transition-all duration-300 hover:shadow-xl`}
-    >
+    <div className="rounded-2xl border border-white/10 bg-zinc-900/40 p-6 transition-colors hover:border-white/20">
       <div className="mb-4 flex items-center gap-3">
-        <Icon className="h-6 w-6 text-gray-700" />
-        <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+        <Icon className="h-5 w-5 text-zinc-300" />
+        <h3 className="text-xl font-semibold text-zinc-100">{title}</h3>
       </div>
       <ul className="space-y-3">
         {content.map((item, index) => (
           <li key={index} className="flex items-start gap-2">
-            <span className="text-gray-600">•</span>
-            <span className="text-gray-700">{item}</span>
+            <span className="text-zinc-500">•</span>
+            <span className="text-zinc-300">{item}</span>
           </li>
         ))}
       </ul>
@@ -82,10 +69,15 @@ const AboutSection = ({
 
 export const About = () => {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-gray-800">About Me</h2>
-        <p className="mx-auto max-w-2xl text-gray-600">
+    <section className="py-12">
+      <div className="mb-12">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          About
+        </p>
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight text-zinc-100">
+          Building interfaces with clarity and purpose
+        </h2>
+        <p className="max-w-2xl text-zinc-400">
           A dedicated software developer passionate about creating exceptional
           digital experiences
         </p>
@@ -96,6 +88,6 @@ export const About = () => {
           <AboutSection key={section.title} {...section} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
